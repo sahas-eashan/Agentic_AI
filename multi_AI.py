@@ -1,5 +1,6 @@
 from phi.agent import Agent
 from phi.model.ollama import Ollama
+from phi.model.groq import Groq
 from phi.tools.yfinance import YFinanceTools
 from phi.tools.duckduckgo import DuckDuckGo
 from phi.playground import Playground, serve_playground_app
@@ -51,7 +52,21 @@ finance_agent = Agent(
     debug_mode=True,
 )
 
-app = Playground(agents=[web_search_agent, finance_agent]).get_app()
+multi_AI_agent = Agent(
+    model=Ollama(model="llama3.1:8b"),
+    team=[web_search_agent, finance_agent],
+    instructions=[
+        "Collaborate with team members to provide comprehensive answers",
+        "Utilize each agent's strengths and expertise",
+        "Ensure all information is accurate and well-sourced",
+        "Maintain a user-friendly and informative response style",
+    ],
+    show_tool_calls=True,
+    markdown=True,
+)
 
-if __name__ == "__main__":
-    serve_playground_app("playground:app", reload=False, port=8000)
+multi_AI_agent.print_response("What are the latest trends in technology and finance?")
+# app = Playground(agents=[web_search_agent, finance_agent]).get_app()
+
+# if __name__ == "__main__":
+#     serve_playground_app("playground:app", reload=False, port=8000)
