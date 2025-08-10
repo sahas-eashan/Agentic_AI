@@ -164,11 +164,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Ollama](https://ollama.ai/) for local LLM deployment
 - [pgvector](https://github.com/pgvector/pgvector) for vector similarity search
 
-## 📞 Support
-
-- **Documentation**: [Wiki](https://github.com/yourusername/agentic-ai-system/wiki)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/agentic-ai-system/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/agentic-ai-system/discussions)
 
 ---
 
